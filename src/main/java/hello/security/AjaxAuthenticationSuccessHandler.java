@@ -29,6 +29,7 @@ public class AjaxAuthenticationSuccessHandler implements AuthenticationSuccessHa
         // 写入cookie,这样页面访问会自带cookie
         Cookie cookie = new Cookie(JwtFactory.TOKEN_NAME, token);
         cookie.setPath("/");
+        cookie.setHttpOnly(true);
         response.addCookie(cookie);
 
         response.setStatus(HttpServletResponse.SC_CREATED);
